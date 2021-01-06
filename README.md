@@ -9,5 +9,5 @@
 
 3- Running the Tests. 
       * Run command " mvn clean test" at the root directory of this project OR
-      * Or run the SeleniumTestCase file.
+      * Or run the SelenideTest file.
 

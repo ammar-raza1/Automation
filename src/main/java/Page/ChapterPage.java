@@ -1,29 +1,20 @@
 package Page;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class ChapterPage {
 
-    private SelenideElement homePageLinkField = $(byCssSelector("body > div.mainbody > p:nth-child(4) > a"));
-
-
-    public void checkPageHasText(String expectedText) throws Exception {
-        if(!getWebDriver().getPageSource().contains(expectedText))
-        {
-            throw new Exception("Text Not Found");
-        }
+    public String getPageSource() {
+        return getWebDriver().getPageSource();
     }
 
-
-    public HomePage searchAndRedirectToHomePage() {
-        homePageLinkField.click();
+    public HomePage navigateToHomePage() {
+        $(By.linkText("Home Page")).click();
         return Selenide.page(HomePage.class);
     }
-
 
 }
